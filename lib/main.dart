@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-//my_coment
 void main() {
   runApp(MaterialApp(
     home: Myfirstproject(),
@@ -17,7 +16,6 @@ class Myfirstproject extends StatefulWidget {
   _MyfirstprojectState createState() => _MyfirstprojectState();
 }
 
-// add test
 class _MyfirstprojectState extends State<Myfirstproject> {
   @override
   Widget build(BuildContext context) {
@@ -35,10 +33,12 @@ class _MyfirstprojectState extends State<Myfirstproject> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Padding(padding: EdgeInsets.only(top: 40)),
               Text(
-                'Добро пожаловать ',
+                'Добро пожаловать!',
                 style: TextStyle(fontSize: 25, color: Colors.white),
               ),
+              Spacer(),
               Icon(
                 Icons.calculate_outlined,
                 size: 55,
@@ -148,6 +148,7 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                   ElevatedButton(onPressed: () {}, child: Text("0"))
                 ],
               ),
+              Spacer(),
             ]),
       ),
     );
