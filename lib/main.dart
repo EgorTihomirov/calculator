@@ -75,6 +75,14 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                     bottom: 30,
                   )),
                   ElevatedButton(onPressed: () {}, child: Text("3")),
+                  Padding(
+                      padding: EdgeInsets.only(
+                    top: 10,
+                    left: 10,
+                    right: 10,
+                    bottom: 30,
+                  )),
+                  ElevatedButton(onPressed: () {}, child: Text("+")),
                 ],
               ),
               Row(
@@ -103,7 +111,15 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                     right: 10,
                     bottom: 30,
                   )),
-                  ElevatedButton(onPressed: () {}, child: Text("6"))
+                  ElevatedButton(onPressed: () {}, child: Text("6")),
+                  Padding(
+                      padding: EdgeInsets.only(
+                    top: 10,
+                    left: 10,
+                    right: 10,
+                    bottom: 30,
+                  )),
+                  ElevatedButton(onPressed: () {}, child: Text("-")),
                 ],
               ),
               Row(
@@ -132,7 +148,15 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                     right: 10,
                     bottom: 10,
                   )),
-                  ElevatedButton(onPressed: () {}, child: Text("9"))
+                  ElevatedButton(onPressed: () {}, child: Text("9")),
+                  Padding(
+                      padding: EdgeInsets.only(
+                    top: 10,
+                    left: 10,
+                    right: 10,
+                    bottom: 30,
+                  )),
+                  ElevatedButton(onPressed: () {}, child: Text("x")),
                 ],
               ),
               Row(
@@ -140,12 +164,36 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                 children: [
                   Padding(
                       padding: EdgeInsets.only(
+                    top: 10,
+                    left: 10,
+                    right: 10,
+                    bottom: 30,
+                  )),
+                  ElevatedButton(onPressed: () {}, child: Text("00")),
+                  Padding(
+                      padding: EdgeInsets.only(
                     top: 30,
                     left: 10,
                     right: 10,
                     bottom: 10,
                   )),
-                  ElevatedButton(onPressed: () {}, child: Text("0"))
+                  ElevatedButton(onPressed: () {}, child: Text("0")),
+                  Padding(
+                      padding: EdgeInsets.only(
+                    top: 10,
+                    left: 10,
+                    right: 10,
+                    bottom: 30,
+                  )),
+                  ElevatedButton(onPressed: () {}, child: Text("/")),
+                  Padding(
+                      padding: EdgeInsets.only(
+                    top: 10,
+                    left: 10,
+                    right: 10,
+                    bottom: 30,
+                  )),
+                  ElevatedButton(onPressed: () {}, child: Text("=")),
                 ],
               ),
               Spacer(),
