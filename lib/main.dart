@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -25,13 +23,22 @@ class _MyfirstprojectState extends State<Myfirstproject> {
         child: Text("$value"));
   }
 
-  var actions = {1: "+", 2: "-"};
-  Widget buildActionButton(int action) {
+  List<Widget> buildPad(List<int> padNums) {
+    List<Widget> buttons = [];
+
+    for (var i = 0; i != padNums.length; i++) {
+      buttons.add(buildNumberButton(padNums[i]));
+    }
+    return buttons; //Row(mainAxisAlignment: MainAxisAlignment.center, children: buttons);
+  }
+
+  Widget ActionButton(int b, String a) {
     return ElevatedButton(
         onPressed: () {
-          action = action;
+          action = b;
+          ResultAction();
         },
-        child: Text("${actions[action]}"));
+        child: Text(a));
   }
 
   int result = 0;
@@ -129,91 +136,41 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                 style: TextStyle(fontSize: 30, color: Colors.white),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  buildNumberButton(1),
-                  buildNumberButton(2),
-                  buildNumberButton(3),
-                  Padding(
-                      padding: EdgeInsets.only(
-                    right: 10,
-                  )),
-                  ElevatedButton(
-                      onPressed: () {
-                        action = 1;
-                        ResultAction();
-                      },
-                      child: Text("+")),
-                ],
-              ),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: buildPad([1, 2, 3])),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: buildPad([4, 5, 6])),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: buildPad([
+                    7,
+                    8,
+                    9,
+                  ])),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildNumberButton(4),
-                  buildNumberButton(5),
-                  buildNumberButton(6),
-                  Padding(
-                      padding: EdgeInsets.only(
-                    right: 10,
-                  )),
                   ElevatedButton(
                       onPressed: () {
-                        action = 2;
-                        ResultAction();
+                        Clear();
                       },
-                      child: Text("-")),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  buildNumberButton(7),
-                  buildNumberButton(8),
-                  buildNumberButton(9),
-                  Padding(
-                      padding: EdgeInsets.only(
-                    right: 10,
-                  )),
-                  ElevatedButton(
-                      onPressed: () {
-                        action = 3;
-                        ResultAction();
-                      },
-                      child: Text("x")),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  buildNumberButton(00),
+                      child: Text("Clear")),
                   buildNumberButton(0),
-                  ElevatedButton(
-                      onPressed: () {
-                        action = 4;
-                        ResultAction();
-                      },
-                      child: Text("/")),
-                  Padding(padding: EdgeInsets.only(right: 0)),
                   ElevatedButton(
                       onPressed: () {
                         Final();
                       },
                       child: Text("=")),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ElevatedButton(
-                              onPressed: () {
-                                Clear();
-                              },
-                              child: Text("clear")),
-                        ],
-                      ),
-                    ],
-                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ActionButton(1, "+"),
+                  ActionButton(2, "-"),
+                  ActionButton(3, "*"),
+                  ActionButton(4, "/"),
                 ],
               ),
               Spacer(),
