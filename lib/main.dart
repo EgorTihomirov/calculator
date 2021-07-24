@@ -38,6 +38,8 @@ class _MyfirstprojectState extends State<Myfirstproject> {
   int action = 0;
   int FirstNum = 0;
   int SecondNum = 0;
+  String Printaction = "";
+  String test = "";
   void Final() {
     setState(() {
       switch (action) {
@@ -57,12 +59,43 @@ class _MyfirstprojectState extends State<Myfirstproject> {
     });
   }
 
+  void ResultAction() {
+    setState(() {
+      switch (action) {
+        case 1:
+          Printaction = "+";
+          break;
+        case 2:
+          Printaction = "-";
+          break;
+        case 3:
+          Printaction = "*";
+          break;
+        case 4:
+          Printaction = "/";
+          break;
+      }
+    });
+  }
+
+  void Clear() {
+    setState(() {
+      result = 0;
+      action = 0;
+      SecondNum = 0;
+      FirstNum = 0;
+      Printaction = "";
+    });
+  }
+
   void TestNum(int Num) {
     setState(() {
       if (action == 0) {
-        FirstNum += FirstNum * 10 + Num;
+        FirstNum = FirstNum * 10 + Num;
+        Num = 0;
       } else {
-        SecondNum += SecondNum * 10 + Num;
+        SecondNum = SecondNum * 10 + Num;
+        Num = 0;
       }
     });
   }
@@ -72,7 +105,7 @@ class _MyfirstprojectState extends State<Myfirstproject> {
     return Scaffold(
       backgroundColor: Colors.lightGreen[200],
       appBar: AppBar(
-        title: Text("Калькулятор"),
+        title: Text("Calculate"),
         centerTitle: true,
         backgroundColor: Colors.lightGreen,
       ),
@@ -82,7 +115,7 @@ class _MyfirstprojectState extends State<Myfirstproject> {
             children: <Widget>[
               Padding(padding: EdgeInsets.only(top: 40)),
               Text(
-                'Добро пожаловать!',
+                'Welcome!',
                 style: TextStyle(fontSize: 25, color: Colors.white),
               ),
               Spacer(),
@@ -92,7 +125,7 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                 color: Colors.lightGreen[400],
               ),
               Text(
-                ' Результат: $result',
+                ' Result: $FirstNum $Printaction $SecondNum = $result',
                 style: TextStyle(fontSize: 30, color: Colors.white),
               ),
               Row(
@@ -103,11 +136,12 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                   buildNumberButton(3),
                   Padding(
                       padding: EdgeInsets.only(
-                    left: 10,
+                    right: 10,
                   )),
                   ElevatedButton(
                       onPressed: () {
                         action = 1;
+                        ResultAction();
                       },
                       child: Text("+")),
                 ],
@@ -120,11 +154,12 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                   buildNumberButton(6),
                   Padding(
                       padding: EdgeInsets.only(
-                    left: 10,
+                    right: 10,
                   )),
                   ElevatedButton(
                       onPressed: () {
                         action = 2;
+                        ResultAction();
                       },
                       child: Text("-")),
                 ],
@@ -137,11 +172,12 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                   buildNumberButton(9),
                   Padding(
                       padding: EdgeInsets.only(
-                    left: 10,
+                    right: 10,
                   )),
                   ElevatedButton(
                       onPressed: () {
                         action = 3;
+                        ResultAction();
                       },
                       child: Text("x")),
                 ],
@@ -151,16 +187,33 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                 children: [
                   buildNumberButton(00),
                   buildNumberButton(0),
-                  ElevatedButton(onPressed: () {}, child: Text("/")),
-                  Padding(
-                      padding: EdgeInsets.only(
-                    left: 10,
-                  )),
+                  ElevatedButton(
+                      onPressed: () {
+                        action = 4;
+                        ResultAction();
+                      },
+                      child: Text("/")),
+                  Padding(padding: EdgeInsets.only(right: 0)),
                   ElevatedButton(
                       onPressed: () {
                         Final();
                       },
                       child: Text("=")),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                Clear();
+                              },
+                              child: Text("clear")),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
               Spacer(),
