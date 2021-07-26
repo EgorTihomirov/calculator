@@ -143,11 +143,7 @@ class _MyfirstprojectState extends State<Myfirstproject> {
                   children: buildPad([4, 5, 6])),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: buildPad([
-                    7,
-                    8,
-                    9,
-                  ])),
+                  children: buildPad([7, 8, 9])),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
